@@ -7,6 +7,9 @@ const authService = require('./services/authService');
 const hbsHelper = require('./helpers/hbsHelper')
 const loggerService = require('./services/loggerService')
 const indexRouter = require('./routes/main');
+const courseRouter = require('./routes/curs');
+const profileRouter = require('./routes/profil');
+const quizRouter = require('./routes/quiz');
 const app = express();
 
 // view engine setup
@@ -23,6 +26,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(authService);
 
 app.use('/', indexRouter);
+app.use('/curs', courseRouter);
+app.use('/profil', profileRouter);
+app.use('/quiz', quizRouter);
+
 // catch 404 and forward to error handler
 
 app.use(function(req, res, next) {
