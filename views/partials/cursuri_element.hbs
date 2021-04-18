@@ -1,0 +1,30 @@
+<div class="container ">
+    {{#each payload.cursuri}}
+        <div class="row">
+            <p>Id curs: {{this.id}}  </p>
+        </div>
+        <div class="row">
+            <p>Nume curs: {{this.name}}  </p>
+        </div>
+        <div class="row">
+            <p>Descriere curs: {{this.description}}  </p>
+        </div>
+        <div class="row">
+            <a class="btn btn-success" href="/cursuri?id={{this.id}}">Incepe Cursul</a>
+        </div>
+    {{/each}}
+</div>
+
+<!--
+model de payload atunci cand request-ul se face fara query parameter, ex: http://localhost:3000/cursuri,
+
+{
+        title: "PIE",
+        user: username,
+        curs: null,
+        cursuri: [{id:1,nume:"CURSUL 01",description:"O scurte descriere referitoare la..."},
+                  {id:2,nume:"CURSUL 02",description:"O scurte descriere referitoare la..."}
+               ]
+}
+
+-->

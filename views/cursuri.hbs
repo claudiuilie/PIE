@@ -1,0 +1,10 @@
+<!--
+    daca facem un request pe /cursuri ne va afisa continutul din fisierul /views/partials/cursuri_element.hbs (aici pui html-ul)
+    daca facem un request pe /cursuri?id=1 , unde id = id-ul cursului din baza de date , ne va afisa continutul din fisierul
+    /views/partials/curs_element.hbs
+-->
+{{#if payload.cursuri}}
+    {{>cursuri_element}}
+{{else if payload.curs}}
+    {{>curs_element}}
+{{/if}}
