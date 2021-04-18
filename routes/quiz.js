@@ -1,17 +1,35 @@
 const express = require('express');
 const router = express.Router();
+const quizService = require('../services/database/quizService');
 
-/* GET home page. */
 router.get('/', async (req, res, next) => {
 
-    res.render('quiz',
-        {
-            payload: {
-                message: "Bun venit!",
-                title: "PIE",
-                user: req.user
-            }
-        });
+    const user = req.user;
+    const params = req.query;
+    let payloadContent = {
+        title: "PIE",
+        user: user,
+        quiz: null
+    }
+
+    if(typeof params.c !== "undefined"){
+        await quizService.getByCourseId(params.c)
+            .then((data)=>{
+                payloadContent.quiz = data;
+            })
+            .catch((err)=>{
+                next(err);
+            })
+
+        console.log(payloadContent);
+
+        res.render('quiz',
+            {
+                payload: payloadContent
+            });
+    }else{
+        res.redirect('/cursuri');
+    }
 });
 
 module.exports = router;

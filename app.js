@@ -7,7 +7,7 @@ const authService = require('./services/authService');
 const hbsHelper = require('./helpers/hbsHelper')
 const loggerService = require('./services/loggerService')
 const indexRouter = require('./routes/main');
-const courseRouter = require('./routes/curs');
+const courseRouter = require('./routes/cursuri');
 const profileRouter = require('./routes/profil');
 const quizRouter = require('./routes/quiz');
 const app = express();
@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(authService);
 
 app.use('/', indexRouter);
-app.use('/curs', courseRouter);
+app.use('/cursuri', courseRouter);
 app.use('/profil', profileRouter);
 app.use('/quiz', quizRouter);
 

@@ -1,0 +1,41 @@
+<div class="container">
+    {{#each payload.quiz}}
+        <p>Id : {{this.id}}</p>
+        <p>descriere : {{this.description}}</p>
+        <p>context : {{this.context}}</p>
+        <p>a : {{this.choice_a}}</p>
+        <p>b : {{this.choice_b}}</p>
+        <p>c : {{this.choice_c}}</p>
+        <p>d : {{this.choice_d}}</p>
+
+    {{/each}}
+</div>
+
+<!--{
+exemplu de payload cand se face request cu parametrul course=course_id din baza de date
+http://localhost:3000/quiz?c=1
+
+  title: 'PIE',
+  user: 'admin',
+  quiz: [
+    BinaryRow {
+      id: 1,
+      choice_a: 'Avionul',
+      choice_b: 'Masina',
+      choice_c: 'Bicicleta',
+      choice_d: 'Tramvaiul',
+      description: 'Intrebarea 01',
+      context: 'Care din urmatoarele mijloace de transport este cel mai rapid ?'
+    },
+    BinaryRow {
+      id: 2,
+      choice_a: 'Avionul',
+      choice_b: 'Masina',
+      choice_c: 'Bicicleta',
+      choice_d: 'Tramvaiul',
+      description: 'Intrebarea 01',
+      context: 'Care din urmatoarele mijloace de transport este cel mai rapid ?'
+    }
+  ]
+}
+-->
