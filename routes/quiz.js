@@ -15,13 +15,12 @@ router.get('/', async (req, res, next) => {
     if(typeof params.c !== "undefined"){
         await quizService.getByCourseId(params.c)
             .then((data)=>{
+                res.body = data;
                 payloadContent.quiz = data;
             })
             .catch((err)=>{
                 next(err);
             })
-
-        console.log(payloadContent);
 
         res.render('quiz',
             {

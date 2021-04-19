@@ -16,13 +16,12 @@ router.get('/', async (req, res, next) => {
     if(typeof params.id !== "undefined"){
         await courseService.getById(params.id)
             .then((data)=>{
+                res.body = data;
                 payloadContent.curs = data;
             })
             .catch((err)=>{
                 next(err);
-            })
-
-        console.log(payloadContent);
+            });
 
         res.render('cursuri',
             {
@@ -31,13 +30,12 @@ router.get('/', async (req, res, next) => {
     }else{
         await courseService.getAll()
             .then((data)=>{
+                res.body = data;
                 payloadContent.cursuri = data;
             })
             .catch((err)=>{
                 next(err);
-            })
-
-        console.log(payloadContent);
+            });
 
         res.render('cursuri',
             {
