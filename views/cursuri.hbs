@@ -3,8 +3,132 @@
     daca facem un request pe /cursuri?id=1 , unde id = id-ul cursului din baza de date , ne va afisa continutul din fisierul
     /views/partials/curs_element.hbs
 -->
-{{#if payload.cursuri}}
+{{!-- {{#if payload.cursuri}}
     {{>cursuri_element}}
 {{else if payload.curs}}
     {{>curs_element}}
-{{/if}}
+{{/if}} --}}
+
+
+				<div class="app-content page-body">
+					<div class="container">
+
+						<!--Page header-->
+						<div class="page-header">
+							<div class="page-leftheader">
+								<h4 class="page-title"><b>Cursul numarul 01</b></h4>
+						
+							</div>
+							<div class="page-rightheader ml-auto d-lg-flex d-none">
+			
+								<div class="ml-3">
+								
+								
+									<span class="float-left">
+										<span class="mb-0 mt-1 mr-2">2</span><small class="mb-0">Cursuri studiate</small>
+									</span>
+								</div>
+							</div>
+						</div>
+						<!--End Page header-->
+
+
+						<!-- Row -->
+						<div class="row">
+
+							<div class="col-md-12">
+								<div class="card">
+									<div class="card-body">
+										<h4><b>Capitolul 1</b></h4>
+										<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci et perferendis maiores libero, delectus sit quaerat nobis nam sint numquam dolores similique consectetur animi error, at ipsum minima dignissimos recusandae.
+                                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit accusamus ipsum, cumque dolores consequatur error quas nihil aliquam illo eius minus ad tempora porro, itaque obcaecati quasi. Numquam, repudiandae cum!
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur iure, fugit atque cupiditate id fuga tenetur quae esse harum ex, recusandae pariatur aperiam quaerat cumque sequi tempore sit blanditiis maxime.
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur iure, fugit atque cupiditate id fuga tenetur quae esse harum ex, recusandae pariatur aperiam quaerat cumque sequi tempore sit blanditiis maxime.
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur iure, fugit atque cupiditate id fuga tenetur quae esse harum ex, recusandae pariatur aperiam quaerat cumque sequi tempore sit blanditiis maxime.
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur iure, fugit atque cupiditate id fuga tenetur quae esse harum ex, recusandae pariatur aperiam quaerat cumque sequi tempore sit blanditiis maxime.
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur iure, fugit atque cupiditate id fuga tenetur quae esse harum ex, recusandae pariatur aperiam quaerat cumque sequi tempore sit blanditiis maxime.
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur iure, fugit atque cupiditate id fuga tenetur quae esse harum ex, recusandae pariatur aperiam quaerat cumque sequi tempore sit blanditiis maxime.
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur iure, fugit atque cupiditate id fuga tenetur quae esse harum ex, recusandae pariatur aperiam quaerat cumque sequi tempore sit blanditiis maxime.
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur iure, fugit atque cupiditate id fuga tenetur quae esse harum ex, recusandae pariatur aperiam quaerat cumque sequi tempore sit blanditiis maxime.
+                                        </p>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-12">
+								<div class="card">
+									<div class="card-body">
+										<h4><b>Capitolul 2</b></h4>
+										<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci et perferendis maiores libero, delectus sit quaerat nobis nam sint numquam dolores similique consectetur animi error, at ipsum minima dignissimos recusandae.
+                                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit accusamus ipsum, cumque dolores consequatur error quas nihil aliquam illo eius minus ad tempora porro, itaque obcaecati quasi. Numquam, repudiandae cum!
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur iure, fugit atque cupiditate id fuga tenetur quae esse harum ex, recusandae pariatur aperiam quaerat cumque sequi tempore sit blanditiis maxime.
+                                           em dolor sit amet, consectetur adipisicing elit. Aspernatur iure, fugit atque cupiditate id fuga tenetur quae esse harum ex, recusandae pariatur aperiam quaerat cumque sequi tempore sit blanditiis maxime.
+                                        </p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="card">
+									<div class="card-body">
+										<h4><b>Capitolul 3</b></h4>
+										<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci et perferendis maiores libero, delectus sit quaerat nobis nam sint numquam dolores similique consectetur animi error, at ipsum minima dignissimos recusandae.
+                                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit accusamus ipsum, cumque dolores consequatur error quas nihil aliquam illo eius minus ad tempora porro, itaque obcaecati quasi. Numquam, repudiandae cum!
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur iure, fugit atque cupiditate id fuga tenetur quae esse harum ex, recusandae pariatur aperiam quaerat cumque sequi tempore sit blanditiis maxime.
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur iure, fugit atque cupiditate id fuga tenetur quae esse harum ex, recusandae pariatur aperiam quaerat cumque sequi tempore sit blanditiis maxime.
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur iure, fugit atque cupiditate id fuga tenetur quae esse harum ex, recusandae pariatur aperiam quaerat cumque sequi tempore sit blanditiis maxime.
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur iure, fugit atque cupiditate id fuga tenetur quae esse harum ex, recusandae pariatur aperiam quaerat cumque sequi tempore sit blanditiis maxime.
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur iure, fugit atque cupiditate id fuga tenetur quae esse harum ex, recusandae pariatur aperiam quaerat cumque sequi tempore sit blanditiis maxime.
+                                        </p>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-md-12">
+								<div class="card">
+									<div class="card-body">
+										<h4><b>Capitolul 4</b></h4>
+										<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci et perferendis maiores libero, delectus sit quaerat nobis nam sint numquam dolores similique consectetur animi error, at ipsum minima dignissimos recusandae.
+                                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit accusamus ipsum, cumque dolores consequatur error quas nihil aliquam illo eius minus ad tempora porro, itaque obcaecati quasi. Numquam, repudiandae cum!
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur iure, fugit atque cupiditate id fuga tenetur quae esse harum ex, recusandae pariatur aperiam quaerat cumque sequi tempore sit blanditiis maxime.
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur iure, fugit atque cupiditate id fuga tenetur quae esse harum ex, recusandae pariatur aperiam quaerat cumque sequi tempore sit blanditiis maxime.
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur iure, fugit atque cupiditate id fuga tenetur quae esse harum ex, recusandae pariatur aperiam quaerat cumque sequi tempore sit blanditiis maxime.
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur iure, fugit atque cupiditate id fuga tenetur quae esse harum ex, recusandae pariatur aperiam quaerat cumque sequi tempore sit blanditiis maxime.
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur iure, fugit atque cupiditate id fuga tenetur quae esse harum ex, recusandae pariatur aperiam quaerat cumque sequi tempore sit blanditiis maxime.
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur iure, fugit atque cupiditate id fuga tenetur quae esse harum ex, recusandae pariatur aperiam quaerat cumque sequi tempore sit blanditiis maxime.
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur iure, fugit atque cupiditate id fuga tenetur quae esse harum ex, recusandae pariatur aperiam quaerat cumque sequi tempore sit blanditiis maxime.
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur iure, fugit atque cupiditate id fuga tenetur quae esse harum ex, recusandae pariatur aperiam quaerat cumque sequi tempore sit blanditiis maxime.
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur iure, fugit atque cupiditate id fuga tenetur quae esse harum ex, recusandae pariatur aperiam quaerat cumque sequi tempore sit blanditiis maxime.
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur iure, fugit atque cupiditate id fuga tenetur quae esse harum ex, recusandae pariatur aperiam quaerat cumque sequi tempore sit blanditiis maxime.
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur iure, fugit atque cupiditate id fuga tenetur quae esse harum ex, recusandae pariatur aperiam quaerat cumque sequi tempore sit blanditiis maxime.
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur iure, fugit atque cupiditate id fuga tenetur quae esse harum ex, recusandae pariatur aperiam quaerat cumque sequi tempore sit blanditiis maxime.
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur iure, fugit atque cupiditate id fuga tenetur quae esse harum ex, recusandae pariatur aperiam quaerat cumque sequi tempore sit blanditiis maxime.
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur iure, fugit atque cupiditate id fuga tenetur quae esse harum ex, recusandae pariatur aperiam quaerat cumque sequi tempore sit blanditiis maxime.
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur iure, fugit atque cupiditate id fuga tenetur quae esse harum ex, recusandae pariatur aperiam quaerat cumque sequi tempore sit blanditiis maxime.
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur iure, fugit atque cupiditate id fuga tenetur quae esse harum ex, recusandae pariatur aperiam quaerat cumque sequi tempore sit blanditiis maxime.
+                                        </p>
+									</div>
+								</div>
+							</div>
+
+					
+						
+				
+							<div class="col-md-12">
+			
+
+								<div class="card">
+									<div class="card-body">
+										<div class="terms">
+											<p>Felicitari pentru timpul acordat acestui curs. Esti pregatit sa incepi testarea grila ?</p>
+											<a href="#" class="btn btn-primary text-white">DA</a>
+											<a href="index.html" class="btn btn-secondary text-white">NU</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- End Row -->
+
+
+					</div>
+				</div><!-- end app-content-->
