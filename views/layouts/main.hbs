@@ -1,162 +1,54 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-	<head>
-
-		<!-- Meta data -->
-		<meta charset="UTF-8">
-		<meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
-
-		<!-- Title -->
-		<title>PIE</title>
-
-		<!--Favicon -->
-		<link rel="icon" href="assets/images/brand/favicon.ico" type="image/x-icon"/>
-
-		<!-- Style css -->
-		<link href="/css/style.css" rel="stylesheet" />
-
-		<!--Horizontal css -->
-        <link id="effect" href="/plugins/horizontal-menu/dropdown-effects/fade-up.css" rel="stylesheet" />
-        <link href="/plugins/horizontal-menu/horizontal.css" rel="stylesheet" />
-
-		<!-- P-scroll bar css-->
-		<link href="/plugins/p-scrollbar/p-scrollbar.css" rel="stylesheet" />
-
-		<!---Icons css-->
-		<link href="/plugins/web-fonts/icons.css" rel="stylesheet" />
-		<link href="/plugins/web-fonts/font-awesome/font-awesome.min.css" rel="stylesheet">
-		<link href="/plugins/web-fonts/plugin.css" rel="stylesheet" />
-
-		<!-- Skin css-->
-		<link href="/css/skins.css" rel="stylesheet" />
-
-	</head>
+    <head>
+        <!-- Meta data -->
+        <meta charset="UTF-8">
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+        <!-- Title -->
+        <title>PIE</title>
+        <!--Favicon -->
+        <link rel="icon" href="assets/images/brand/favicon.ico" type="image/x-icon"/>
+        <!-- Style css -->
+        <link href="/css/style.css" rel="stylesheet"/>
+        <!--Horizontal css -->
+        <link id="effect" href="/plugins/horizontal-menu/dropdown-effects/fade-up.css" rel="stylesheet"/>
+        <link href="/plugins/horizontal-menu/horizontal.css" rel="stylesheet"/>
+        <!-- P-scroll bar css-->
+        <link href="/plugins/p-scrollbar/p-scrollbar.css" rel="stylesheet"/>
+        <!---Icons css-->
+        <link href="/plugins/web-fonts/icons.css" rel="stylesheet"/>
+        <link href="/plugins/web-fonts/font-awesome/font-awesome.min.css" rel="stylesheet">
+        <link href="/plugins/web-fonts/plugin.css" rel="stylesheet"/>
+        <!-- Skin css-->
+        <link href="/css/skins.css" rel="stylesheet"/>
+    </head>
 
     <body class="app">
+    <!---Global-loader-->
+    <div id="global-loader">
+        <img src="assets/images/svgs/loader.svg" alt="loader">
+    </div>
 
-		<!---Global-loader-->
-		<div id="global-loader" >
-			<img src="assets/images/svgs/loader.svg" alt="loader">
-		</div>
+    <div class="page">
+        <div class="page-main">
+            {{>header}}
+            {{>navbar}}
+            {{{body}}}
+        </div>
+    </div>
 
-		<div class="page">
-			<div class="page-main">
-				<div class="header top-header">
-					<div class="container">
-						<div class="d-flex">
-							<a id="horizontal-navtoggle" class="animated-arrow hor-toggle"><span></span></a><!-- sidebar-toggle-->
-							<a class="header-brand" href="index.html">
-								<img src="assets/images/brand/logo.png" class="header-brand-img desktop-lgo" alt="Clont logo">
-								<img src="assets/images/brand/logo1.png" class="header-brand-img dark-logo" alt="Clont logo">
-								<img src="assets/images/brand/favicon.png" class="header-brand-img mobile-logo" alt="Clont logo">
-								<img src="assets/images/brand/favicon1.png" class="header-brand-img darkmobile-logo" alt="Clont logo">
-							</a>
-		
+    {{>footer}}
 
-							<div class="d-flex order-lg-2 ml-auto">
-
-								<div class="dropdown   header-fullscreen" >
-									<a  class="nav-link icon full-screen-link"  id="fullscreen-button">
-										<i class="fe fe-minimize"></i>
-									</a>
-								</div>
-							
-								<div class="dropdown ">
-									<a href="#" class="nav-link pr-0 leading-none" data-toggle="dropdown">
-										<span>
-											<img src="assets/images/users/16.jpg" alt="img" class="avatar avatar-md brround">
-										</span>
-									</a>
-									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow ">
-										<div class="text-center">
-											<a href="#" class="dropdown-item text-center user pb-0">Nume cursant</a>
-											<span class="text-center user-semi-title text-dark">Student lvl 1</span>
-											<div class="dropdown-divider"></div>
-										</div>
-										<a class="dropdown-item" href="#">
-											<i class="dropdown-icon mdi mdi-account-outline "></i> Profile
-										</a>
-										<a class="dropdown-item" href="login.html">
-											<i class="dropdown-icon mdi  mdi-logout-variant"></i> Sign out
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Horizontal-menu -->
-				<div class="horizontal-main hor-menu clearfix">
-					<div class="horizontal-mainwrapper container clearfix">
-						<nav class="horizontalMenu clearfix">
-							<ul class="horizontalMenu-list">
-								<li aria-haspopup="true"><a href="/" class="sub-icon "><i class="fe fe-monitor hor-icon"></i>Cursurile PIE <i class="fa fa-angle-down horizontal-icon"></i></a>
-									<ul class="sub-menu">
-										<li aria-haspopup="true"><a href="/cursuri">Curs 02</a></li>
-										<li aria-haspopup="true"><a href="/cursuri">Curs 01</a></li>
-										<li aria-haspopup="true"><a href="/cursuri">Curs 03</a></li>
-										<li aria-haspopup="true"><a href="/cursuri">Curs 04</a></li>
-										<li aria-haspopup="true"><a href="/cursuri">Curs 05</a></li>
-										<li aria-haspopup="true"><a href="/cursuri">Curs 06</a></li>
-										
-									</ul>
-								</li>
-			
-								<li aria-haspopup="true"><a href="/cursuri" class=""><i class="fe fe-grid"></i>Curs 01</a></li>
-								<li aria-haspopup="true"><a href="/cursuri" class=""><i class="fe fe-grid"></i>Curs 02</a></li>
-								<li aria-haspopup="true"><a href="/cursuri" class=""><i class="fe fe-grid"></i>Curs 03</a></li>
-								<li aria-haspopup="true"><a href="/cursuri" class=""><i class="fe fe-grid"></i>Curs 04</a></li>
-								<li aria-haspopup="true"><a href="/cursuri" class=""><i class="fe fe-grid"></i>Curs 05</a></li>
-								<li aria-haspopup="true"><a href="/cursuri" class=""><i class="fe fe-grid"></i>Curs 06</a></li>
-								<li aria-haspopup="true"><a href="/profil" class=""><i class="fe fe-clipboard"></i>Status Cursuri</a></li>
-			
-		
-
-		
-				
-							</ul>
-						</nav>
-						<!--Nav end -->
-					</div>
-				</div>
-				<!-- Horizontal-menu end -->
-
-{{{body}}}
-
-</div>
-
-			<!--Footer-->
-			<footer class="footer">
-				<div class="container">
-					<div class="row align-items-center flex-row-reverse">
-						<div class="col-md-12 col-sm-12 mt-3 mt-lg-0 text-center">
-							Copyright © 2021 <a href="#">PIE</a>. Designed by <a href="#">IlieDitaCocias Technologies</a> All rights reserved.
-						</div>
-					</div>
-				</div>
-			</footer>
-			<!-- End Footer-->
-
-		</div>
-
-        		<!-- Jquery js-->
-		<script src="/js/vendors/jquery-3.4.0.min.js"></script>
-
-		<!-- Bootstrap4 js-->
-		<script src="/plugins/bootstrap/popper.min.js"></script>
-		<script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
-
-
-		<!--Horizontal js-->
-		<script src="/plugins/horizontal-menu/horizontal.js"></script>
-
-		<!-- P-scroll js-->
-		<script src="/plugins/p-scrollbar/p-scrollbar.js"></script>
-
-
-		<!-- Custom js-->
-		<script src="/js/custom.js"></script>
-
-	</body>
+    <!-- Jquery js-->
+    <script src="/js/vendors/jquery-3.4.0.min.js"></script>
+    <!-- Bootstrap4 js-->
+    <script src="/plugins/bootstrap/popper.min.js"></script>
+    <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!--Horizontal js-->
+    <script src="/plugins/horizontal-menu/horizontal.js"></script>
+    <!-- P-scroll js-->
+    <script src="/plugins/p-scrollbar/p-scrollbar.js"></script>
+    <!-- Custom js-->
+    <script src="/js/custom.js"></script>
+</body>
 </html>

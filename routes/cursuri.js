@@ -7,10 +7,10 @@ router.get('/', async (req, res, next) => {
     const user = req.user;
     const params = req.query;
     let payloadContent = {
-        title: "PIE",
         user: user,
         curs: null,
-        cursuri: null
+        curs_name:null,
+        curs_id:null
     }
 
     if(typeof params.id !== "undefined"){
@@ -18,6 +18,11 @@ router.get('/', async (req, res, next) => {
             .then((data)=>{
                 res.body = data;
                 payloadContent.curs = data;
+
+                if(data.length > 0 ){
+                    payloadContent.curs_name = data[0].name;
+                    payloadContent.curs_id = data[0].id;
+                }
             })
             .catch((err)=>{
                 next(err);
@@ -28,19 +33,7 @@ router.get('/', async (req, res, next) => {
                 payload: payloadContent
             });
     }else{
-        await courseService.getAll()
-            .then((data)=>{
-                res.body = data;
-                payloadContent.cursuri = data;
-            })
-            .catch((err)=>{
-                next(err);
-            });
-
-        res.render('cursuri',
-            {
-                payload: payloadContent
-            });
+        res.redirect('/');
     }
 });
 

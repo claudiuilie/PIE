@@ -1,36 +1,37 @@
-<div class="container">
-    <h4>Cursuri</h4>
+<div class="page-header">
+    <div class="page-leftheader">
+        <h4 class="page-title"><b>{{payload.curs_name}}</b></h4>
+    </div>
+<!--    <div class="page-rightheader ml-auto d-lg-flex d-none">-->
+<!--        <div class="ml-3">-->
+<!--                <span class="float-left">-->
+<!--                    <span class="mb-0 mt-1 mr-2">2</span><small class="mb-0">Cursuri studiate</small>-->
+<!--                </span>-->
+<!--        </div>-->
+<!--    </div>-->
+</div>
+<div class="row">
+
     {{#each payload.curs}}
-        <div class="container border border-info">
-            <div class="row">
-                <p>Id curs: {{this.id}}  </p>
-            </div>
-            <div class="row">
-                <p>Nume curs: {{this.name}}  </p>
-            </div>
-            <div class="row">
-                <p>Descriere curs: {{this.description}}  </p>
-            </div>
-            <div class="row">
-                <p>Context curs: {{this.context}}  </p>
-            </div>
-            <div class="row">
-                <a class="btn btn-success" href="/quiz?c={{this.id}}">Incepe Testul</a>
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4><b>Capitolul 1</b></h4>
+                    <p>{{this.context}}</p>
+                </div>
             </div>
         </div>
     {{/each}}
+
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="terms">
+                    <p>Felicitari pentru timpul acordat acestui curs. Esti pregatit sa incepi testarea grila ?</p>
+                    <a href="/quiz?c={{payload.curs_id}}" class="btn btn-primary text-white">DA</a>
+                    <a href="" class="btn btn-secondary text-white">NU</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-<!--
-model de payload atunci cand request-ul se face cu query parameter, ex: http://localhost:3000/cursuri?id=1 ,
-unde id = id-ul cursului din tabela courses
-
-{
-        title: "PIE",
-        user: username,
-        curs: [{id:1,nume:"CURSUL 01",description:"Capitolul 1", context: "Lore imsum..."},
-               {id:2,nume:"CURSUL 02",description:"Capitolul 1", context: "Lore imsum..."}
-               ],
-        cursuri: null
-}
--->

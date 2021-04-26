@@ -1,5 +1,42 @@
-<nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">{{payload.title}}</a>
-    <a class="navbar-brand" href="/cursuri">Cursuri</a>
-    <span class="navbar-brand" >{{payload.user}}</span>
-</nav>
+<div class="header top-header">
+    <div class="container">
+        <div class="d-flex">
+            <a id="horizontal-navtoggle" class="animated-arrow hor-toggle"><span></span></a>
+            <!-- sidebar-toggle-->
+            <a class="header-brand" href="/">
+                <img src="assets/images/brand/logo.png" class="header-brand-img desktop-lgo" alt="Clont logo">
+                <img src="assets/images/brand/logo1.png" class="header-brand-img dark-logo" alt="Clont logo">
+                <img src="assets/images/brand/favicon.png" class="header-brand-img mobile-logo" alt="Clont logo">
+                <img src="assets/images/brand/favicon1.png" class="header-brand-img darkmobile-logo" alt="Clont logo">
+            </a>
+
+            <div class="d-flex order-lg-2 ml-auto">
+                <div class="dropdown   header-fullscreen">
+                    <a class="nav-link icon full-screen-link" id="fullscreen-button">
+                        <i class="fe fe-minimize"></i>
+                    </a>
+                </div>
+                <div class="dropdown ">
+                    <a href="#" class="nav-link pr-0 leading-none" data-toggle="dropdown">
+                        <span>
+                            <img src="assets/images/users/16.jpg" alt="img" class="avatar avatar-md brround">
+                        </span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow ">
+                        <div class="text-center">
+                            <a href="#" class="dropdown-item text-center user pb-0">Nume cursant</a>
+                            <span class="text-center user-semi-title text-dark">Student lvl 1</span>
+                            <div class="dropdown-divider"></div>
+                        </div>
+                        <a class="dropdown-item" href="#">
+                            <i class="dropdown-icon mdi mdi-account-outline "></i> Profile
+                        </a>
+                        <a class="dropdown-item" href="login.html">
+                            <i class="dropdown-icon mdi  mdi-logout-variant"></i> Sign out
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
