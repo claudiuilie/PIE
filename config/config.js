@@ -6,8 +6,7 @@ const config = {
         port     : process.env.DB_PORT,
         user     : process.env.DB_USER,
         password : process.env.DB_PASSWORD ,
-        database : process.env.DB_DATABASE,
-        connectionLimit : process.env.DB_CONNECTIONS
+        database : process.env.DB_DATABASE
     },
     listPerPage: env.LIST_PER_PAGE || 10,
 };

@@ -1,73 +1,10 @@
-<div class="app-content page-body">
-    <div class="container">
+<div class="container">
 
-        <!--Page header-->
-        <div class="page-header">
-            <div class="page-leftheader">
-                <h4 class="page-title">Quiz curs ..</h4>
-            </div>
+    <div class="page-header">
+        <div class="page-leftheader">
+            <h4 class="page-title">Testarea cunostintelor</h4>
         </div>
-        <!--End Page header-->
-
-        <!--row open-->
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Form Wizard</h3>
-                    </div>
-                    <div class="card-body">
-                        <div id="smartwizard-3">
-                            <ul>
-                                <li><a href="#step-01">01</a></li>
-                                <li><a href="#step-02">02</a></li>
-                                <li><a href="#step-03">03</a></li>
-                                <li><a href="#step-04">04</a></li>
-                                <li><a href="#step-05">05</a></li>
-                                <li><a href="#step-06">06</a></li>
-                                <li><a href="#step-07">07</a></li>
-                                <li><a href="#step-08">08</a></li>
-                                <li><a href="#step-09">09</a></li>
-                                <li><a href="#step-10">10</a></li>
-                            </ul>
-                            <div>
-                                <div id="step-01" class="">
-                                    <form>
-                                        {{>quiz_element}}
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--row closed-->
-
-        <div class="row">
-            <div class="col-md-12 col-xl-12">
-                <div class="card  bg-lime">
-                    <div class="card-header z-index-10">
-                        <h3 class="card-title text-white">Obtinerea certificatului de absolvire a celor 6 cursuri</h3>
-                        <div class="card-options">
-                            <a href="#" class="card-options-collapse" data-toggle="card-collapse"><i
-                                    class="fe fe-chevron-up text-white"></i></a>
-                            <a href="#" class="card-options-remove" data-toggle="card-remove"><i
-                                    class="fe fe-x text-white"></i></a>
-                        </div>
-                    </div>
-                    <div class="card-body  text-white">
-                        CURSUL 1 este disponibil si poate fi parcurs. Pentru a trece la CURSUL 2 este necesar ca la
-                        finalul primului curs, studentii sa sustina
-                        examenul de tip grila de 20 de intrebari. Obtinearea unui rezultat de minim de 65 de puncte va
-                        debloca urmatorul curs ce poate fi studiat.
-                        Pentru o buna dezvoltare a cunostintelor, studentul nu poate studia urmatorul curs, pana nu
-                        dobandeste cunostinte minime din cursul aferent.
-                        Toate cursurile sunt blocate cu exceptia primului.
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
-</div><!-- end app-content-->
+
+    {{>quiz_element}}
+</div>
