@@ -1,0 +1,39 @@
+<div class="table-responsive">
+    <table class="table card-table table-vcenter border text-nowrap">
+        <thead>
+        <tr>
+            <th>Nume Curs</th>
+            <th>Data</th>
+            <th>Status</th>
+            <th>Punctaj</th>
+        </tr>
+        </thead>
+        <tbody
+        {{#each payload.curs_status}}
+            <tr>
+                <td>
+                    <a href="/cursuri?id={{this.course_id}}" class="text-inherit">{{this.name}}</a>
+                </td>
+                <td>{{this.quiz_date}}</td>
+                <td>
+                    {{#if this.passed}}
+                        <span class="status-icon bg-success"></span>
+                        Admis
+                    {{else}}
+                        <span class="status-icon bg-danger"></span>
+                        Blocat
+                    {{/if}}
+                </td>
+                <td>
+                {{#if this.score}}
+                    {{this.score}}/100
+                {{else}}
+                    -- /100
+                {{/if}}
+
+                </td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</div>
