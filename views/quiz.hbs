@@ -1,3 +1,132 @@
-{{#if payload.quiz}}
+{{!-- {{#if payload.quiz}}
     {{>quiz_element}}
-{{/if}}
+{{/if}} --}}
+
+
+<div class="app-content page-body">
+					<div class="container">
+
+						<!--Page header-->
+						<div class="page-header">
+							<div class="page-leftheader">
+								<h4 class="page-title">Platforma de studiu si testare a cunostintelor...bla bla bla</h4>
+						
+							</div>
+							<div class="page-rightheader ml-auto d-lg-flex d-none">
+			
+								<div class="ml-3">
+								
+								
+									<span class="float-left">
+										<span class="mb-0 mt-1 mr-2">2</span><small class="mb-0">Cursuri studiate</small>
+									</span>
+								</div>
+							</div>
+						</div>
+						<!--End Page header-->
+
+
+                        <!--row open-->
+						<div class="row">
+							<div class="col-12">
+								<div class="card">
+									<div class="card-header">
+										<h3 class="card-title">Form Wizard</h3>
+									</div>
+									<div class="card-body">
+										<div id="smartwizard-3">
+											<ul>
+												<li><a href="#step-01">01</a></li>
+												<li><a href="#step-02">02</a></li>
+												<li><a href="#step-03">03</a></li>
+												<li><a href="#step-04">04</a></li>
+												<li><a href="#step-05">05</a></li>
+												<li><a href="#step-06">06</a></li>
+												<li><a href="#step-07">07</a></li>
+												<li><a href="#step-08">08</a></li>
+												<li><a href="#step-09">09</a></li>
+												<li><a href="#step-10">10</a></li>
+											</ul>
+											<div>
+												<div id="step-01" class="">
+													<form >
+														<div class="form-group">
+															<label><h5><b>Intrebarea 01</b></h5></label>
+															<p><b> Care din urmatoarele mijloace de transport este cel mai rapid ?</b></p>
+														</div>
+                                                        <input type="radio" id="avion" name="t1_q1" value="avion">
+                                                        <label for="male"><b>a)</b>  Avionul</label><br>
+                                                        <input type="radio" id="masina" name="t1_q1" value="masina">
+                                                        <label for="female"><b>b)</b> Masina</label><br>
+                                                        <input type="radio" id="bicicleta" name="t1_q1" value="bicicleta">
+                                                        <label for="other"><b>c)</b> Bicicleta</label><br>
+                                                        <input type="radio" id="tramvai" name="t1_q1" value="tramvai">
+                                                        <label for="other"><b>d)</b> Tramvaiul</label><br>
+													</form>
+												</div>
+
+												<div id="step-02" class="">
+													<form >
+														<div class="form-group">
+															<label><h5><b>Intrebarea 02</b></h5></label>
+															<p><b> Care din urmatoarele mijloace de transport este cel mai rapid ?</b></p>
+														</div>
+                                                        <input type="radio" id="avion" name="t1_q1" value="avion">
+                                                        <label for="male"><b>a)</b>  Avionul</label><br>
+                                                        <input type="radio" id="masina" name="t1_q1" value="masina">
+                                                        <label for="female"><b>b)</b> Masina</label><br>
+                                                        <input type="radio" id="bicicleta" name="t1_q1" value="bicicleta">
+                                                        <label for="other"><b>c)</b> Bicicleta</label><br>
+                                                        <input type="radio" id="tramvai" name="t1_q1" value="tramvai">
+                                                        <label for="other"><b>d)</b> Tramvaiul</label><br>
+													</form>
+												</div>
+
+												<div id="step-03" class="">
+													<form >
+														<div class="form-group">
+															<label><h5><b>Intrebarea 03</b></h5></label>
+															<p><b> Care din urmatoarele mijloace de transport este cel mai rapid ?</b></p>
+														</div>
+                                                        <input type="radio" id="avion" name="t1_q1" value="avion">
+                                                        <label for="male"><b>a)</b>  Avionul</label><br>
+                                                        <input type="radio" id="masina" name="t1_q1" value="masina">
+                                                        <label for="female"><b>b)</b> Masina</label><br>
+                                                        <input type="radio" id="bicicleta" name="t1_q1" value="bicicleta">
+                                                        <label for="other"><b>c)</b> Bicicleta</label><br>
+                                                        <input type="radio" id="tramvai" name="t1_q1" value="tramvai">
+                                                        <label for="other"><b>d)</b> Tramvaiul</label><br>
+													</form>
+												</div>
+							
+	
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--row closed-->
+
+                        <div class="row">
+                            <div class="col-md-12 col-xl-12">
+								<div class="card  bg-lime">
+									<div class="card-header z-index-10">
+										<h3 class="card-title text-white">Obtinerea certificatului de absolvire a celor 6 cursuri</h3>
+										<div class="card-options">
+											<a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up text-white"></i></a>
+											<a href="#" class="card-options-remove" data-toggle="card-remove"><i class="fe fe-x text-white"></i></a>
+										</div>
+									</div>
+									<div class="card-body  text-white">
+										CURSUL 1 este disponibil si poate fi parcurs. Pentru a trece la CURSUL 2 este necesar ca la finalul primului curs, studentii sa sustina
+										examenul de tip grila de 20 de intrebari. Obtinearea unui rezultat de minim de 65 de puncte va debloca urmatorul curs ce poate fi studiat.
+										Pentru o buna dezvoltare a cunostintelor, studentul nu poate studia urmatorul curs, pana nu dobandeste cunostinte minime din cursul aferent.
+										Toate cursurile sunt blocate cu exceptia primului.
+									</div>
+								</div>
+							</div>
+                        </div>
+
+					</div>
+				</div><!-- end app-content-->
