@@ -1,9 +1,8 @@
 <div class="row">
     {{#each payload.cursuri}}
-        <div class="col-md-12 col-xl-4">
-            <div class="card overflow-hidden">
-                <img src="assets/images/photos/12.jpg" alt="image">
-                <div class="card-body">
+        <div class="col-md-12 col-xl-4 ">
+            <div class="card overflow-hidden  shadow-sm p-3">
+                <div class="card-body ">
                     <h5 class="card-title mb-3">{{this.name}}</h5>
                     <p class="card-text">{{this.description}}</p>
                     <a href="/cursuri?id={{this.id}}" class="btn btn-orange">Incepe cursul</a>
@@ -12,18 +11,3 @@
         </div>
     {{/each}}
 </div>
-
-
-<!--
-model de payload atunci cand request-ul se face fara query parameter, ex: http://localhost:3000/cursuri,
-
-{
-        title: "PIE",
-        user: username,
-        curs: null,
-        cursuri: [{id:1,nume:"CURSUL 01",description:"O scurte descriere referitoare la..."},
-                  {id:2,nume:"CURSUL 02",description:"O scurte descriere referitoare la..."}
-               ]
-}
-
--->

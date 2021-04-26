@@ -1,25 +1,38 @@
-<!-- Horizontal-menu -->
-<div class="horizontal-main hor-menu clearfix">
-    <div class="horizontal-mainwrapper container clearfix">
-        <nav class="horizontalMenu clearfix">
-            <ul class="horizontalMenu-list">
-                <li aria-haspopup="true"><a href="/" class="sub-icon "><i class="fe fe-monitor hor-icon"></i>Cursurile
-                    PIE <i class="fa fa-angle-down horizontal-icon"></i></a>
-                    <ul class="sub-menu">
+<nav class="navbar navbar-expand-lg bg-white sticky-top border-bottom ">
+    <a class="navbar-brand" href="/">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-                        <li aria-haspopup="true"><a href="/cursuri?id=1">Curs 01</a></li>
-                        <li aria-haspopup="true"><a href="/cursuri?id=2">Curs 02</a></li>
-                        <li aria-haspopup="true"><a href="/cursuri?id=3">Curs 03</a></li>
-                        <li aria-haspopup="true"><a href="/cursuri?id=4">Curs 04</a></li>
-                        <li aria-haspopup="true"><a href="/cursuri?id=5">Curs 05</a></li>
-                        <li aria-haspopup="true"><a href="/cursuri?id=6">Curs 06</a></li>
-                    </ul>
-                </li>
-                <li aria-haspopup="true"><a href="/profil" class=""><i class="fe fe-clipboard"></i>Status Cursuri</a>
-                </li>
-            </ul>
-        </nav>
-        <!--Nav end -->
-    </div>
-</div>
-<!-- Horizontal-menu end -->
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="/" id="navbarCursuri" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+                Cursuri
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarCursuri">
+                <a class="dropdown-item" href="/cursuri?id=1">Cursul 01</a>
+                <a class="dropdown-item" href="/cursuri?id=2">Cursul 02</a>
+                <a class="dropdown-item" href="/cursuri?id=3">Cursul 03</a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/profil">Status Cursuri</a>
+        </li>
+    </ul>
+
+    <ul class="navbar-nav float-right">
+        <li class="nav-item dropleft">
+            <a class="nav-link dropdown-toggle" href="/" id="navbarUser" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+                {{payload.user}}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarUser">
+                <a class="dropdown-item" href="/profile">Profile</a>
+                <a class="dropdown-item" href="/#">Log out</a>
+            </div>
+        </li>
+    </ul>
+
+</nav>

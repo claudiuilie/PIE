@@ -1,28 +1,17 @@
-<div class="app-content page-body">
-    <div class="container">
-
-        <!--Page header-->
-        <div class="page-header">
-            <div class="page-leftheader">
-                <h4 class="page-title">Platforma de studiu si testare a cunostintelor...bla bla bla</h4>
-            </div>
-        </div>
-        <!--End Page header-->
-
-        <!--Row-->
-        <div class="row">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Status cursuri</h3>
-                </div>
-                <div class="card-body">
-                    {{>status_cursuri_table}}
-                </div>
-            </div>
-
-        </div>
-        <!-- End Row-->
+<div class="page-header">
+    <div class="page-leftheader">
+        <h4 class="page-title">Platforma de studiu si testare a cunostintelor...bla bla bla</h4>
     </div>
-</div><!-- end app-content-->
+</div>
 
-                
+<div class="row">
+    <div class="card shadow-lg">
+        <div class="card-header">
+            <h3 class="card-title">Status cursuri</h3>
+        </div>
+        <div class="card-body">
+            {{>tabel_status_cursuri}}
+        </div>
+    </div>
+
+</div>
