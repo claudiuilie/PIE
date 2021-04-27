@@ -1,12 +1,11 @@
 <div class="card shadow-lg mb-3 p-2">
     <div class="card-header">
-        <h3 class="card-title">Form Wizard</h3>
+        <h4 class="page-title">Testarea cunostintelor</h4>
     </div>
     <div class="card-body">
-
         <div>
             <div id="step-01" class="">
-                <form>
+                <form id="quiz_form" action="/quiz/submit" method="post">
                     <div class="container">
                         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel"
                              data-interval="false">
@@ -18,18 +17,18 @@
                                             <b><i class="fa fa-question-circle text-info fa-lg"
                                                   aria-hidden="true"></i> {{this.context}}</b>
                                         </div>
-                                        <div class="container">
+                                        <div class="container question">
                                             <input type="radio" id="id_q_{{this.id}}" name="q_{{this.id}}"
-                                                   value={{this.choice_a}}>
+                                                   value="a">
                                             <label for="male"><b>a)</b> {{this.choice_a}}</label><br>
                                             <input type="radio" id="id_q_{{this.id}}" name="q_{{this.id}}"
-                                                   value={{this.choice_b}}>
+                                                   value="b">
                                             <label for="female"><b>b)</b> {{this.choice_b}}</label><br>
                                             <input type="radio" id="id_q_{{this.id}}" name="q_{{this.id}}"
-                                                   value={{this.choice_c}}>
+                                                   value="c">
                                             <label for="other"><b>c)</b> {{this.choice_c}}</label><br>
                                             <input type="radio" id="id_q_{{this.id}}" name="q_{{this.id}}"
-                                                   value={{this.choice_d}}>
+                                                   value="d">
                                             <label for="other"><b>d)</b> {{this.choice_d}}</label><br>
                                         </div>
                                     </div>
@@ -37,16 +36,27 @@
                             </div>
 
                             <div class="card-footer p-1 text-center">
-                                <a class="btn btn-orange text-white" href="#carouselExampleControls"
-                                   role="button" data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="btn btn-orange text-white" href="#carouselExampleControls"
-                                   role="button" data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
+                                <div class="row p-1">
+                                    <div class="col">
+                                        <a class="btn btn-orange text-white" href="#carouselExampleControls"
+                                           role="button" data-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="btn btn-orange text-white" href="#carouselExampleControls"
+                                           role="button" data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="row p-1" hidden id="quiz_submit_container">
+                                    <div class="col">
+                                        <button  class="btn btn-success btn-lg pl-5 pr-5" type="submit">
+                                            Submit
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

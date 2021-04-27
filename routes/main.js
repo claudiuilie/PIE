@@ -6,7 +6,6 @@ const courseService = require('../services/database/courseService');
 router.get('/', async (req, res, next) => {
 
     let payloadContent = {
-        title: "PIE",
         user: req.user,
         cursuri: null
     }
@@ -20,6 +19,7 @@ router.get('/', async (req, res, next) => {
             next(err);
         });
 
+    console.log(payloadContent)
     res.render('home',
         {
             payload: payloadContent

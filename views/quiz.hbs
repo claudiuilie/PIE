@@ -1,10 +1,8 @@
 <div class="container">
-
-    <div class="page-header">
-        <div class="page-leftheader">
-            <h4 class="page-title">Testarea cunostintelor</h4>
-        </div>
-    </div>
-
-    {{>quiz_element}}
+    {{#unless payload.quiz_passed}}
+        {{#if payload.quiz_available}}
+            {{>quiz_element}}
+        {{/if}}
+    {{/unless}}
 </div>
+<script src="js/quiz.js"></script>

@@ -5,7 +5,9 @@ const getByIdQuery = `select c.*,cc.description,cc.context
                         from courses c 
                         join course_chapters cc on cc.course_id = c.id
                       where c.id = ?;`;
-const getAllQuery = `select * from courses;`
+const getAllQuery = `select c.*,qr.available, qr.passed, qr.score from courses c 
+                      left join quiz q on q.course_id = c.id
+                      left join quiz_results qr on qr.quiz_id = q.id;`
 
 function getById(id){
     return new Promise(async (resolve,reject)=>{

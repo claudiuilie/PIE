@@ -6,30 +6,21 @@
     </button>
 
     <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="/" id="navbarCursuri" role="button" data-toggle="dropdown"
-               aria-haspopup="true" aria-expanded="false">
-                Cursuri
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarCursuri">
-                <a class="dropdown-item" href="/cursuri?id=1">Cursul 01</a>
-                <a class="dropdown-item" href="/cursuri?id=2">Cursul 02</a>
-                <a class="dropdown-item" href="/cursuri?id=3">Cursul 03</a>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/profil">Status Cursuri</a>
-        </li>
+
     </ul>
 
     <ul class="navbar-nav float-right">
         <li class="nav-item dropleft">
-            <a class="nav-link dropdown-toggle" href="/" id="navbarUser" role="button" data-toggle="dropdown"
-               aria-haspopup="true" aria-expanded="false">
-                {{payload.user}}
-            </a>
+            <span class="text-center">
+                <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
+                <span class="badge rounded-pill  bg-info">1 </span>
+                <a class="nav-link  p-0 mr-1" href="/" id="navbarUser" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{payload.user}}
+                </a>
+            </span>
+
             <div class="dropdown-menu" aria-labelledby="navbarUser">
-                <a class="dropdown-item" href="/profile">Profile</a>
+                <a class="dropdown-item" href="/profil">Profil</a>
                 <a class="dropdown-item" href="/#">Log out</a>
             </div>
         </li>

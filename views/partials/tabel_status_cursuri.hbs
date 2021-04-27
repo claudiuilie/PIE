@@ -20,8 +20,13 @@
                         <span class="status-icon bg-success"></span>
                         Admis
                     {{else}}
-                        <span class="status-icon bg-danger"></span>
-                        Blocat
+                        {{#if this.available}}
+                            <span class="status-icon bg-warning"></span>
+                            Disponibil
+                        {{else}}
+                            <span class="status-icon bg-danger"></span>
+                            Blocat
+                        {{/if}}
                     {{/if}}
                 </td>
                 <td>
