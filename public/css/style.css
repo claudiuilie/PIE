@@ -10958,7 +10958,7 @@ body.fixed-header .header {
 }
 .nav-link.icon .nav-span{
 	font-size:0.9rem;
-	color: #031938 ; 
+	color: #031938 ;
 	vertical-align:middle;
 	margin-left:0.5rem;
 	font-weight: 400;
@@ -14650,7 +14650,7 @@ Dimmer
     top: 0;
 }
 @media (max-width: 575.98px){
-	
+
 	body.search-show .header .form-inline .search-element {
 		display: block;
 	}
@@ -14691,7 +14691,7 @@ Dimmer
 		color:#031938;
 		padding-top: 4px;
 	}
-	
+
 }
 
 /*-------- Loaders ---------*/
@@ -21785,17 +21785,17 @@ Inbox Message Style
  *  Accordion-Wizard-Form
  * ----------------------
  */
-div[data-acc-content] { 
-	display: none;  
+div[data-acc-content] {
+	display: none;
 }
 div[data-acc-step]:not(.open) {
-	background: #f2f5fb;  
+	background: #f2f5fb;
 }
 div[data-acc-step]:not(.open) h5 {
 	color:#8e9cad;
 }
- div[data-acc-step]:not(.open) .badge-primary { 
-	background: #8e9cad; 
+ div[data-acc-step]:not(.open) .badge-primary {
+	background: #8e9cad;
 }
 #form .list-group-item:hover{
 	background:none;
@@ -21843,6 +21843,10 @@ div[data-acc-step]:not(.open) h5 {
 }
 .card-bgimg .card-body {
     z-index: 10;
+}
+
+.counter.counter-lg {
+	top: -24px !important;
 }
 
 /*Horizontal Centerlogo */
