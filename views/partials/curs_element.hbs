@@ -8,12 +8,14 @@
     {{#each payload.curs}}
         <div class="col-md-12">
             <div class="card shadow-lg mb-5 p-3">
-                <div class="card-body">
+                <div class="card-header">
                     <h4>
                         <b>
-                            <i class="fa fa-book" aria-hidden="true"></i> {{this.description}}
+                            <i class="fad fa-lg text-gray-dark fa-book"></i> {{this.description}}
                         </b>
                     </h4>
+                </div>
+                <div class="card-body">
                     <pre class="bg-white text-dark border-0 ">{{this.context}}</pre>
                 </div>
             </div>

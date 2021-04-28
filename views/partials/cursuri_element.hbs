@@ -4,18 +4,21 @@
             <div class="card overflow-hidden  shadow-sm p-3">
                 {{#if this.passed}}
                     <span>
-                        <i class="fa fa-graduation-cap float-right text-orange fa-lg" aria-hidden="true"></i>
+                        <i class="fad fa-award float-right text-yellow fa-2x" aria-hidden="true"></i>
                     </span>
                 {{/if}}
+                {{#unless this.available}}
+                    <span>
+                        <i class="fas fa-lock-alt text-danger float-right fa-lg"></i>
+                    </span>
+                {{/unless}}
                 <div class="card-body ">
                     <h5 class="card-title mb-3">{{this.name}}</h5>
                     <p class="card-text">{{this.description}}</p>
                     {{#if this.passed}}
-
-                        <i class="fa fa-check-square-o fa-lg text-success" aria-hidden="true"></i> {{this.score}} / 100
+                        {{this.score}} / 100 <i class="fad fa-check fa-lg text-success" aria-hidden="true"></i>
                     {{else}}
-                        <a href="/cursuri?id={{this.id}}" class="btn btn-orange {{#unless this.available}}
-                        disabled{{/unless}}" >Incepe cursul</a>
+                        <a href="/cursuri?id={{this.id}}" class="btn btn-orange {{#unless this.available}}disabled{{/unless}}">Incepe Cursul</a>
                     {{/if}}
                 </div>
             </div>

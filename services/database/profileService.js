@@ -3,7 +3,7 @@ const helper = require('../../helpers/dbHelper');
 
 const getAllQuery = `Select c.name,q.course_id, qr.quiz_id,qr.available,qr.score,
                         DATE_FORMAT(qr.quiz_date, "%d/%m/%Y") "quiz_date",
-                        qr.passed, qr.min_score from courses c
+                        qr.passed, q.minimum_score from courses c
                       left join quiz q on q.course_id = c.id
                       left join quiz_results qr on qr.quiz_id = q.id`;
 

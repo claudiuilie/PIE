@@ -17,15 +17,12 @@
                 <td>{{this.quiz_date}}</td>
                 <td>
                     {{#if this.passed}}
-                        <span class="status-icon bg-success"></span>
-                        Admis
+                        <i class="fas fa-award text-yellow fa-lg"></i>
                     {{else}}
                         {{#if this.available}}
-                            <span class="status-icon bg-warning"></span>
-                            Disponibil
+                            <i class="fas fa-unlock-alt text-success fa-lg"></i>
                         {{else}}
-                            <span class="status-icon bg-danger"></span>
-                            Blocat
+                            <i class="fas fa-lock-alt text-danger fa-lg"></i>
                         {{/if}}
                     {{/if}}
                 </td>

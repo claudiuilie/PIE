@@ -1,6 +1,6 @@
 <div class="card shadow-lg mb-3 p-2">
-    <div class="card-header">
-        <h4 class="page-title">Testarea cunostintelor</h4>
+    <div class="card-header ">
+        <h4 class="font-weight-semibold text-gray-dark">{{payload.course_description}}</h4>
     </div>
     <div class="card-body">
         <div>
@@ -12,10 +12,12 @@
                             <div class="carousel-inner">
                                 {{#each payload.quiz}}
                                     <div class="carousel-item {{#ifEquals this.id 1}}active{{/ifEquals}}">
+                                        <div class="form-group text-center">
+                                            <div class="form-text text-muted">Intrebarea {{this.id}} / 10</div>
+                                        </div>
                                         <div class="form-group">
-                                            <label><h5><b>{{this.description}}</b></h5></label></br>
-                                            <b><i class="fa fa-question-circle text-info fa-lg"
-                                                  aria-hidden="true"></i> {{this.context}}</b>
+                                                <i class="fa fa-question-circle text-info fa-lg " aria-hidden="true"></i>
+                                                <b class="text-gray-dark">&ensp;{{this.context}}</b>
                                         </div>
                                         <div class="container question">
                                             <div class="form-check">
@@ -36,6 +38,11 @@
                                             <div class="form-check mb-2">
                                                 <input class="form-check-input" type="checkbox" id="id_q_{{this.id}}" name="{{this.id}}" value="d">
                                                 <label class="form-check-label" for="id_q_{{this.id}}"><b>d)</b> {{this.choice_d}}</label>
+                                            </div>
+                                            <div class="dropdown-divider"></div>
+                                            <div class="mb-3">
+                                                <div class="form-text float-right text-muted">10p
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
