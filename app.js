@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const session = require('express-session');
 const env = require('dotenv').config()
 const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
@@ -10,18 +11,27 @@ const indexRouter = require('./routes/main');
 const courseRouter = require('./routes/cursuri');
 const profileRouter = require('./routes/profil');
 const quizRouter = require('./routes/quiz');
+const quizResultsRouter = require('./routes/quizResults');
 const app = express();
 
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
 app.engine('hbs', hbsHelper.engine);
 app.set('view engine', 'hbs');
+
+app.use(session({
+  // cookie: {maxAge : 60000,secure: true},
+  resave: false,
+  secret: "secret",
+  saveUninitialized: false
+}));
 app.use(loggerService.consoleLogger);
 app.use(loggerService.fileLogger);
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+// app.use(cookieParser());
+
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(authService);
 
@@ -29,9 +39,11 @@ app.use('/', indexRouter);
 app.use('/cursuri', courseRouter);
 app.use('/profil', profileRouter);
 app.use('/quiz', quizRouter);
+app.use('/results', quizResultsRouter);
+
+
 
 // catch 404 and forward to error handler
-
 app.use(function(req, res, next) {
   next(createError(404));
 });

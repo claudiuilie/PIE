@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const quizService = require('../services/database/quizService');
+const quizHelper = require('../helpers/quizHelper');
 
 router.get('/', async (req, res, next) => {
 
@@ -11,10 +12,11 @@ router.get('/', async (req, res, next) => {
         quiz: null,
         quiz_available: null,
         quiz_passed: null,
-        message: {
-            type:null,
-            text: null
-        }
+        quiz_id: null
+    }
+    let message = {
+        type:null,
+        text: null
     }
 
     if(typeof params.c !== "undefined"){
@@ -25,6 +27,7 @@ router.get('/', async (req, res, next) => {
                 if(data.length > 0){
                     payloadContent.quiz_available = data[0].available;
                     payloadContent.quiz_passed = data[0].passed;
+                    payloadContent.quiz_id = data[0].quiz_id;
                 }
             })
             .catch((err)=>{
@@ -33,21 +36,22 @@ router.get('/', async (req, res, next) => {
         console.log(payloadContent)
 
         if(payloadContent.quiz_passed ){
-            payloadContent.message.text = "Utilizatorul a obtinut deja certificarea pentru acest curs.";
-            payloadContent.message.type = "info"
+           message.text = "Utilizatorul a obtinut deja certificarea pentru acest curs.";
+           message.type = "info"
         }else{
             if(!payloadContent.quiz_available && payloadContent.quiz.length > 0){
-                payloadContent.message.text = "Utilizatorul nu poate sustine acest curs deoarece este blocat.Pentru deblocare este necesara sustinerea cursurilor anterioare, mai multe informatii sunt disponibile in meniul 'Status Cursuri'";
-                payloadContent.message.type = "warning"
+               message.text = "Utilizatorul nu poate sustine acest curs deoarece este blocat.Pentru deblocare este necesara sustinerea cursurilor anterioare, mai multe informatii sunt disponibile in meniul 'Status Cursuri'";
+               message.type = "warning"
             }else if (payloadContent.quiz.length === 0){
-                payloadContent.message.text = "Nu exista teste disponibile pentru acest curs.Va rugam contactati administratorul aplicatiei.";
-                payloadContent.message.type = "danger"
+               message.text = "Nu exista teste disponibile pentru acest curs.Va rugam contactati administratorul aplicatiei.";
+               message.type = "danger"
             }
         }
 
         res.render('quiz',
             {
-                payload: payloadContent
+                payload: payloadContent,
+                message: message
             });
     }else{
         res.redirect('/cursuri');
@@ -56,8 +60,30 @@ router.get('/', async (req, res, next) => {
 
 router.post('/submit', async(req,res,next)=>{
 
-    console.log(req.body);
-    res.redirect("/")
+    let quizDb;
+    let quizUser;
+    let qId = req.body.quiz_id
+    if(req.body){
+        quizUser = req.body;
+        await quizService.getCorrectChoices(qId)
+            .then((data)=>{
+                res.body = data;
+                quizDb = data;
+            })
+            .catch((err)=>{
+                next(err);
+            })
+    }
+
+    req.session.score = {
+        points : quizHelper.quizScore(quizHelper.quizDbConverter(quizDb), quizHelper.quizUserConverter(quizUser)),
+        scored: quizHelper.correctAnswers(),
+        quiz_id: qId
+    };
+
+    res.redirect("/results")
+
 });
 
 module.exports = router;
+

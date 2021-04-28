@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="card shadow-lg">
+        <div class="card-header text-center">
+
+                {{#if payload.quiz_pass}}
+                    <div class="row">
+                        <a type="button" href="/certificat?c={{payload.course_id}}" class="btn btn-orange"><i class="fa fa-graduation-cap" aria-hidden="true"></i> Genereaza Certificat</a>
+                    </div>
+                {{else}}
+                    <div class="row">
+                        <div class="col">
+                            <a type="button" href="/quiz?c={{payload.course_id}}" class=" btn btn-orange"><i class="fa fa-question-circle-o" aria-hidden="true"></i> Reia testul</a>
+                        </div>
+                        <div class="col">
+                            <a type="button" href="/cursuri?id={{payload.course_id}}" class=" btn btn-orange"><i class="fa fa-book" aria-hidden="true"></i> Reia cursul</a>
+                        </div>
+                    </div>
+                {{/if}}
+
+        </div>
+        <div class="card-body">
+            {{>results_table}}
+        </div>
+    </div>
+</div>
+
