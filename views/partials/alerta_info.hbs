@@ -1,24 +1,24 @@
-{{#if payload.message.text}}
+{{#if message.text}}
     <div class="row">
         <div class="col-md-12 col-xl-12 ">
-            <div class="alert alert-{{payload.message.type}} alert-dismissible fade show" role="alert">
+            <div class="alert alert-{{message.type}} alert-dismissible fade show" role="alert">
                 <div class="row justify-content-center pb-2">
-                    {{#ifEquals payload.message.type 'warning'}}
+                    {{#ifEquals message.type 'warning'}}
                         <i class="fa fa-exclamation-triangle fa-lg" aria-hidden="true"></i>
                     {{/ifEquals}}
-                    {{#ifEquals payload.message.type 'success'}}
-                        <i class="fa fa-check-circle fa-lg" aria-hidden="true"></i>
+                    {{#ifEquals message.type 'success'}}
+                        <i class="fa fa-check-circle fa-lg text-white" aria-hidden="true"></i>
                     {{/ifEquals}}
-                    {{#ifEquals payload.message.type 'danger'}}
+                    {{#ifEquals message.type 'danger'}}
                         <i class="fa fa-times-circle fa-lg" aria-hidden="true"></i>
                     {{/ifEquals}}
-                    {{#ifEquals payload.message.type 'info'}}
+                    {{#ifEquals message.type 'info'}}
                         <i class="fa fa-info-circle fa-lg" aria-hidden="true"></i>
                     {{/ifEquals}}
 
                 </div>
-                <div class="container text-center">
-                    {{payload.message.text}}
+                <div class="container text-center {{#ifEquals message.type 'success'}}text-white{{/ifEquals}}">
+                    {{message.text}}
                 </div>
 
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">

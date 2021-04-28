@@ -1,0 +1,29 @@
+<div class="table-responsive">
+    <table class="table card-table table-vcenter border text-nowrap">
+        <thead>
+        <tr>
+            <th>Intrebare</th>
+            <th>Rezultat</th>
+            <th>Punctaj</th>
+        </tr>
+        </thead>
+        <tbody
+        {{#each payload.questions}}
+            <tr>
+                <td>{{this.description}}</td>
+                {{#if this.scored}}
+                    <td>
+                        <i class="fa fa-check-square-o text-success fa-lg" aria-hidden="true"></i>
+                    </td>
+                    <td>10 / 10</td>
+                {{else}}
+                    <td>
+                        <i class="fa fa-times-circle-o text-danger fa-lg" aria-hidden="true"></i>
+                    </td>
+                    <td>0 / 10</td>
+                {{/if}}
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</div>

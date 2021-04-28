@@ -10,7 +10,8 @@ router.get('/', async (req, res, next) => {
         user: user,
         curs: null,
         curs_name:null,
-        curs_id:null
+        curs_id:null,
+        curs_description: null
     }
 
     if(typeof params.id !== "undefined"){
@@ -22,6 +23,7 @@ router.get('/', async (req, res, next) => {
                 if(data.length > 0 ){
                     payloadContent.curs_name = data[0].name;
                     payloadContent.curs_id = data[0].id;
+                    payloadContent.curs_description = data[0].description;
                 }
             })
             .catch((err)=>{
