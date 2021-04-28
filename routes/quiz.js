@@ -12,7 +12,8 @@ router.get('/', async (req, res, next) => {
         quiz: null,
         quiz_available: null,
         quiz_passed: null,
-        quiz_id: null
+        quiz_id: null,
+        course_description: null
     }
     let message = {
         type:null,
@@ -28,6 +29,7 @@ router.get('/', async (req, res, next) => {
                     payloadContent.quiz_available = data[0].available;
                     payloadContent.quiz_passed = data[0].passed;
                     payloadContent.quiz_id = data[0].quiz_id;
+                    payloadContent.course_description = data[0].quiz_description;
                 }
             })
             .catch((err)=>{

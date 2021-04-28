@@ -1,7 +1,7 @@
 const db = require('./mysqlService');
 const helper = require('../../helpers/dbHelper');
 
-const getByIdQuery = ` select q.id "quiz_id",qq.id,qq.description,qq.context,qq.choice_a,qq.choice_b,qq.choice_c,qq.choice_d, qr.passed,qr.available
+const getByIdQuery = ` select q.id "quiz_id",q.description "quiz_description",qq.id,qq.description,qq.context,qq.choice_a,qq.choice_b,qq.choice_c,qq.choice_d, qr.passed,qr.available
                         from quiz q 
                         join quiz_questions qq on qq.quiz_id = q.id
                         join quiz_results qr on qr.quiz_id = q.id
