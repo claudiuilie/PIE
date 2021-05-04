@@ -11,9 +11,9 @@
                              data-interval="false">
                             <div class="carousel-inner">
                                 {{#each payload.quiz}}
-                                    <div class="carousel-item {{#ifEquals this.id 1}}active{{/ifEquals}}">
+                                    <div class="carousel-item {{#ifEquals @key 0}}active{{/ifEquals}}">
                                         <div class="form-group text-center">
-                                            <div class="form-text text-muted">Intrebarea {{this.id}} / 10</div>
+                                            <div class="form-text text-muted">{{this.description}} / 10</div>
                                         </div>
                                         <div class="form-group">
                                                 <i class="fa fa-question-circle text-info fa-lg " aria-hidden="true"></i>
