@@ -10,6 +10,7 @@ const loggerService = require('./services/loggerService')
 const indexRouter = require('./routes/main');
 const courseRouter = require('./routes/cursuri');
 const profileRouter = require('./routes/profil');
+const teamRouter = require('./routes/team');
 const quizRouter = require('./routes/quiz');
 const quizResultsRouter = require('./routes/quizResults');
 const app = express();
@@ -40,8 +41,7 @@ app.use('/cursuri', courseRouter);
 app.use('/profil', profileRouter);
 app.use('/quiz', quizRouter);
 app.use('/results', quizResultsRouter);
-
-
+app.use('/team',teamRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

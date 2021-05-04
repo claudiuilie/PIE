@@ -1,0 +1,34 @@
+<div class="row">
+    {{#each payload.cursuri}}
+        <div class="col-md-12 col-xl-4 ">
+            <div class="card overflow-hidden  shadow-sm p-3">
+                {{#if this.passed}}
+                    <span>
+                        <i class="fad fa-award float-right text-yellow fa-2x" aria-hidden="true"></i>
+                    </span>
+                {{else}}
+                    {{#if this.available}}
+                        <span>
+                        <i class="fas fa-unlock-alt text-success float-right fa-lg"></i>
+                    </span>
+                    {{else}}
+                        <span>
+                        <i class="fas fa-lock-alt text-danger float-right fa-lg"></i>
+                    </span>
+                    {{/if}}
+                {{/if}}
+
+
+                <div class="card-body ">
+                    <h5 class="mb-3">{{this.name}}</h5>
+                    <p class="card-text">{{this.description}}</p>
+                    {{#if this.passed}}
+                        {{this.score}} / 100 <i class="fad fa-check fa-lg text-success" aria-hidden="true"></i>
+                    {{else}}
+                        <a href="/cursuri?id={{this.id}}" class="btn btn-orange {{#unless this.available}}disabled{{/unless}}">Incepe Cursul</a>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</div>

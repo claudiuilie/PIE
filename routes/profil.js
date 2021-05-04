@@ -15,6 +15,7 @@ router.get('/', async (req, res, next) => {
         .then((data)=>{
             res.body = data;
             payloadContent.curs_status = data;
+            console.log(payloadContent)
             res.render('profil', {payload: payloadContent});
         })
         .catch((err)=>{
