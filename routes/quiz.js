@@ -35,7 +35,6 @@ router.get('/', async (req, res, next) => {
             .catch((err)=>{
                 next(err);
             })
-        console.log(payloadContent)
 
         if(payloadContent.quiz_passed ){
            message.text = "Utilizatorul a obtinut deja certificarea pentru acest curs.";

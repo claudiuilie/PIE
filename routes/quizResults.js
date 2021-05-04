@@ -44,16 +44,6 @@ router.get('/', async (req, res, next) => {
                 next(err);
             });
 
-        if (payloadContent.score.points >= minScore){
-            payloadContent.quiz_pass = true;
-            message.type = "success"
-            message.text = `Felicitari! Ai obtinut ${payloadContent.score.points} de puncte din 100 disponibile.`
-        }else if(payloadContent.score.points < minScore){
-            payloadContent.quiz_pass = false;
-            message.type = "danger"
-            message.text = `Din pacate ai obtinut doar ${payloadContent.score.points} de puncte din 100 disponibile.Pentru a putea promova ai nevoie de cel putin ${minScore} de puncte.`
-        }
-
         await courseService.getByQuizId(quizResults.quiz_id)
             .then((data) => {
                 payloadContent.course_id = data[0].id;
@@ -62,8 +52,34 @@ router.get('/', async (req, res, next) => {
                 next(err);
             });
 
+        //passed
+        if (payloadContent.score.points >= minScore){
+            await quizService.setQuizStatus(payloadContent.score.points, req.user,payloadContent.course_id )
+                .then(async (data) => {
+                    if(data.affectedRows > 0){
+                        await quizService.setQuizUnlock(req.user,payloadContent.course_id)
+                            .then((data) => {
+                                console.log(data)
+                                payloadContent.quiz_pass = true;
+                                message.type = "success"
+                                message.text = `Felicitari! Ai obtinut ${payloadContent.score.points} de puncte din 100 disponibile.`
+                            })
+                            .catch((err) => {
+                                next(err);
+                            });
+                    }
 
-        console.log(payloadContent)
+                })
+                .catch((err) => {
+                    next(err);
+                });
+
+        }else if(payloadContent.score.points < minScore){
+            payloadContent.quiz_pass = false;
+            message.type = "danger"
+            message.text = `Din pacate ai obtinut doar ${payloadContent.score.points} de puncte din 100 disponibile.Pentru a putea promova ai nevoie de cel putin ${minScore} de puncte.`
+        }
+
         res.render('quiz_results', {payload: payloadContent, message:message})
     }
 

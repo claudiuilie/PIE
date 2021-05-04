@@ -9,7 +9,7 @@
                 {{else}}
                     <div class="row">
                         <div class="col">
-                            <a type="button" href="/quiz?c={{payload.course_id}}" class=" btn btn-orange"><i class="fa fa-question-circle-o" aria-hidden="true"></i> Reia testul</a>
+                            <a type="button" href="/quiz?c={{payload.course_id}}" class=" btn btn-orange"><i class="fa fa-question-circle" aria-hidden="true"></i> Reia testul</a>
                         </div>
                         <div class="col">
                             <a type="button" href="/cursuri?id={{payload.course_id}}" class=" btn btn-orange"><i class="fa fa-book" aria-hidden="true"></i> Reia cursul</a>
@@ -19,7 +19,7 @@
 
         </div>
         <div class="card-body">
-            {{>results_table}}
+            {{>tabel_rezultate}}
         </div>
     </div>
 </div>
