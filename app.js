@@ -13,6 +13,7 @@ const profileRouter = require('./routes/profil');
 const teamRouter = require('./routes/team');
 const quizRouter = require('./routes/quiz');
 const quizResultsRouter = require('./routes/quizResults');
+const certificateRouter = require('./routes/certificat');
 const app = express();
 
 // view engine setup
@@ -21,7 +22,7 @@ app.engine('hbs', hbsHelper.engine);
 app.set('view engine', 'hbs');
 
 app.use(session({
-  // cookie: {maxAge : 60000,secure: true},
+  // cookie: {secure: true},
   resave: false,
   secret: "secret",
   saveUninitialized: false
@@ -42,6 +43,7 @@ app.use('/profil', profileRouter);
 app.use('/quiz', quizRouter);
 app.use('/results', quizResultsRouter);
 app.use('/team',teamRouter);
+app.use('/certificat',certificateRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

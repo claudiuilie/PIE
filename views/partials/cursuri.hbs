@@ -4,7 +4,9 @@
             <div class="card overflow-hidden  shadow-sm p-3">
                 {{#if this.passed}}
                     <span>
-                        <i class="fad fa-award float-right text-yellow fa-2x" aria-hidden="true"></i>
+                        <a href="/certificat?c={{this.id}}">
+                             <i class="fad fa-award float-right text-yellow fa-2x" aria-hidden="true"></i>
+                        </a>
                     </span>
                 {{else}}
                     {{#if this.available}}
@@ -17,7 +19,6 @@
                     </span>
                     {{/if}}
                 {{/if}}
-
 
                 <div class="card-body ">
                     <h5 class="mb-3">{{this.name}}</h5>

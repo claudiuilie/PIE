@@ -17,7 +17,9 @@
                 <td>{{this.quiz_date}}</td>
                 <td>
                     {{#if this.passed}}
-                        <i class="fas fa-award text-yellow fa-lg"></i>
+                        <a href="/certificat?c={{this.course_id}}">
+                            <i class="fas fa-award text-yellow fa-lg"></i>
+                        </a>
                     {{else}}
                         {{#if this.available}}
                             <i class="fas fa-unlock-alt text-success fa-lg"></i>
