@@ -59,7 +59,6 @@ router.get('/', async (req, res, next) => {
                     if(data.affectedRows > 0){
                         await quizService.setQuizUnlock(req.user,payloadContent.course_id)
                             .then((data) => {
-                                console.log(data)
                                 payloadContent.quiz_pass = true;
                                 message.type = "success"
                                 message.text = `Felicitari! Ai obtinut ${payloadContent.score.points} de puncte din 100 disponibile.`

@@ -8,15 +8,31 @@
             <span class="text-center">
                 <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
                 <i class="fad fa-user-graduate fa-2x"></i>
-<!--                <span class="badge rounded-pill  bg-info">1 </span>-->
                 <a class="nav-link p-0 ml-2" href="/" id="navbarUser" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{payload.user}}</a>
             </span>
 
             <div class="dropdown-menu" aria-labelledby="navbarUser">
                 <a class="dropdown-item" href="/profil">Profil</a>
-                <a class="dropdown-item" href="/#">Log out</a>
+                <a class="dropdown-item" onclick="logOut()" href="/#">Log out</a>
             </div>
         </li>
     </ul>
-
+    <script>
+        function logOut() {
+            jQuery.ajax({
+                type: "GET",
+                url: "/logout",
+                async: false,
+                username: "logmeout",
+                password: "123456",
+                headers: { "Authorization": "Basic xxx" }
+            })
+                    .done(function(){
+                        // If we don't get an error, we actually got an error as we expect an 401!
+                    })
+                    .fail(function(){
+                        window.location = "/";
+                    });
+        }
+    </script>
 </nav>

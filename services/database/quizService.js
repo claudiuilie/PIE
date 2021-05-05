@@ -30,12 +30,10 @@ function setQuizStatus(score,username,courseId) {
     return new Promise(async (resolve,reject)=>{
         try{
             let d = new Date();
-            console.log(d.getFullYear());
             let year = d.getFullYear();
             let month = d.getMonth()+1;
             let day = d.getDate()
             let qd = year + "/" + month + "/" + day;
-            console.log(qd);
             const setQuizStatusQuery = `update quiz_results
                             set passed = 1,
                             score = ?,

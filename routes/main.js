@@ -9,8 +9,12 @@ router.get('/', async (req, res, next) => {
         user: req.user,
         cursuri: null
     }
+    let message = {
+        type:null,
+        text: null
+    }
 
-    await courseService.getAll()
+    await courseService.getAll(req.user)
         .then((data)=>{
             res.body = data;
             payloadContent.cursuri = data;
@@ -19,12 +23,17 @@ router.get('/', async (req, res, next) => {
             next(err);
         });
 
-    console.log(payloadContent)
+    if(payloadContent.cursuri.length === 0){
+        message.type = "warning";
+        message.text = "Nu exista cursuri disponibile pentru acest utilizator.Va rugam contactati administratorul aplicatiei."
+    }
     res.render('home',
         {
-            payload: payloadContent
+            payload: payloadContent,
+            message: message
         });
 
 });
+
 
 module.exports = router;

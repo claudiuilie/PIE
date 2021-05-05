@@ -4,7 +4,7 @@ const db = require('./database/mysqlService');
 const helper = require('../helpers/dbHelper');
 
 function getCredentials(username, password) {
-    const credQuery = `Select * from users;`
+    const credQuery = `Select * from users where username = ? and password = ?;`
     return new Promise(async (resolve, reject) => {
         try {
             const rows = await db.query(credQuery, [username, password]);
@@ -23,8 +23,13 @@ const basicAuth = httpAuth.basic(
         let user;
         await getCredentials(username,password)
             .then((data)=>{
-                const user = data[0];
-                callback(username === user.username && password === user.password)
+                const user = data;
+                if(data.length > 0){
+                    callback(username === user[0].username && password === user[0].password)
+                }else{
+                    callback(false)
+                }
+
             })
             .catch((err)=>{console.log(err)})
     });

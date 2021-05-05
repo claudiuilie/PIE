@@ -1,0 +1,27 @@
+{{#if payload.certificate}}
+    <div class="container d-flex justify-content-center">
+        <div class="outer-border m-0 d-flex">
+            <div class="inner-dotted-border">
+                <span class="certification">CERTIFICAT DE ABSOLVIRE</span> <br><br>
+                <span class="certify"><i>Se certifica faptul ca</i></span> <br><br>
+                <span class="name"><b>{{payload.certificate.first_name}} {{payload.certificate.last_name}}</b></span><br /><br />
+                <span class="certify">
+                <i>a finalizat cu succes certificarea</i>
+            </span> <br /><br />
+                <span class="name">{{payload.certificate.description}}</span> <br /><br />
+                <span class="fs-20">
+                    cu un total de
+                    <b>{{payload.certificate.score}}</b>
+                    de puncte
+                </span> <br /><br />
+                <i class="fad fa-award text-yellow fa-3x" aria-hidden="true"></i>
+                <br />
+                <br />
+                <span class="fs-20"><i>data</i></span><br>
+                <span class="fs-30">{{payload.certificate.quiz_date}}</span>
+            </div>
+        </div>
+    </div>
+{{/if}}
+
+<link href="/css/certificate.css" rel="stylesheet"/>
