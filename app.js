@@ -14,6 +14,8 @@ const teamRouter = require('./routes/team');
 const quizRouter = require('./routes/quiz');
 const quizResultsRouter = require('./routes/quizResults');
 const certificateRouter = require('./routes/certificat');
+const loginRouter = require('./routes/login');
+const registerRouter = require('./routes/register');
 const app = express();
 
 // view engine setup
@@ -38,6 +40,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(authService);
 
 app.use('/', indexRouter);
+app.use('/inregistrare', registerRouter);
+app.use('/logare', loginRouter);
 app.use('/cursuri', courseRouter);
 app.use('/profil', profileRouter);
 app.use('/quiz', quizRouter);
