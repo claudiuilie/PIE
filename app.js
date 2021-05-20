@@ -1,10 +1,10 @@
 const express = require('express');
 const path = require('path');
 const session = require('express-session');
+const authHelper = require('./helpers/authHelper')
 const env = require('dotenv').config()
 const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
-const authService = require('./services/authService');
 const hbsHelper = require('./helpers/hbsHelper')
 const loggerService = require('./services/loggerService')
 const indexRouter = require('./routes/main');
@@ -16,6 +16,7 @@ const quizResultsRouter = require('./routes/quizResults');
 const certificateRouter = require('./routes/certificat');
 const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
+const logoutRouter = require('./routes/logout');
 const app = express();
 
 // view engine setup
@@ -26,22 +27,34 @@ app.set('view engine', 'hbs');
 app.use(session({
   // cookie: {secure: true},
   resave: false,
-  secret: "secret",
+  secret: "dgaed1234ascdt1",
   saveUninitialized: false
 }));
+
+
+
 app.use(loggerService.consoleLogger);
 app.use(loggerService.fileLogger);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-// app.use(cookieParser());
+app.use(cookieParser());
 
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(authService);
+app.use((req, res, next) => {
+  // Get auth token from the cookies
+  console.log(req.session)
+  const authToken = req.cookies['AuthToken'];
+  // Inject the user to the request
+  console.log(authHelper.getAuthTokens())
+  req.user = authHelper.getAuthTokens()[authToken];
+  next();
+});
 
 app.use('/', indexRouter);
 app.use('/inregistrare', registerRouter);
 app.use('/logare', loginRouter);
+app.use('/logout',logoutRouter);
 app.use('/cursuri', courseRouter);
 app.use('/profil', profileRouter);
 app.use('/quiz', quizRouter);

@@ -4,7 +4,14 @@ const quizService = require('../services/database/quizService');
 const quizHelper = require('../helpers/quizHelper');
 
 router.get('/', async (req, res, next) => {
-
+    if (!req.user) {
+        res.render('login', {
+            layout: 'base',
+            message: 'Please login to continue',
+            messageClass: 'alert-danger'
+        });
+        return;
+    }
     const user = req.user;
     const params = req.query;
     let payloadContent = {
@@ -60,7 +67,14 @@ router.get('/', async (req, res, next) => {
 });
 
 router.post('/submit', async(req,res,next)=>{
-
+    if (!req.user) {
+        res.render('login', {
+            layout: 'base',
+            message: 'Please login to continue',
+            messageClass: 'alert-danger'
+        });
+        return;
+    }
     let quizDb;
     let quizUser;
     let qId = req.body.quiz_id

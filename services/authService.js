@@ -1,13 +1,38 @@
-const httpAuth = require('http-auth');
-const authConnect = require("http-auth-connect");
 const db = require('./database/mysqlService');
 const helper = require('../helpers/dbHelper');
 
-function getCredentials(username, password) {
-    const credQuery = `Select * from users where username = ? and password = ?;`
+function getCredentials(email, password) {
+    const credQuery = `Select * from users where email = ? and password = ?;`
     return new Promise(async (resolve, reject) => {
         try {
-            const rows = await db.query(credQuery, [username, password]);
+            const rows = await db.query(credQuery, [email, password]);
+            const data = helper.emptyOrRows(rows);
+            resolve(data[0]);
+        } catch (err) {
+            reject(err)
+        }
+    });
+}
+
+function getUser(email) {
+    const credQuery = `Select count(*) "count" from users where email = ?;`
+    return new Promise(async (resolve, reject) => {
+        try {
+            const rows = await db.query(credQuery, [email]);
+            const data = helper.emptyOrRows(rows);
+            resolve(data[0].count);
+        } catch (err) {
+            reject(err)
+        }
+    });
+}
+
+function insertUser(params) {
+    console.log(params)
+    const credQuery = `INSERT INTO users ( username,email, password, first_name, last_name ) VALUES(?,?,?,?,?);`;
+    return new Promise(async (resolve, reject) => {
+        try {
+            const rows = await db.query(credQuery, Object.values(params));
             const data = helper.emptyOrRows(rows);
             resolve(data);
         } catch (err) {
@@ -16,22 +41,8 @@ function getCredentials(username, password) {
     });
 }
 
-const basicAuth = httpAuth.basic(
-    // {file: path.join(__dirname, '../users.htpasswd')}
-    {realm: "Simon Area."},
-    async function (username, password, callback) {
-        let user;
-        await getCredentials(username,password)
-            .then((data)=>{
-                const user = data;
-                if(data.length > 0){
-                    callback(username === user[0].username && password === user[0].password)
-                }else{
-                    callback(false)
-                }
-
-            })
-            .catch((err)=>{console.log(err)})
-    });
-
-module.exports = authConnect(basicAuth);
+module.exports = {
+    getCredentials,
+    getUser,
+    insertUser
+}

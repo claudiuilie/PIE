@@ -4,6 +4,15 @@ const quizService = require('../services/database/quizService');
 const courseService = require('../services/database/courseService');
 
 router.get('/', async (req, res, next) => {
+    if (!req.user) {
+        res.render('login', {
+            layout: 'base',
+            message: 'Please login to continue',
+            messageClass: 'alert-danger'
+        });
+        return;
+    }
+
     let minScore;
     const quizResults = req.session.score;
     const user = req.user;
