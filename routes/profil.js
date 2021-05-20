@@ -4,6 +4,14 @@ const profileService = require('../services/database/profileService');
 
 
 router.get('/', async (req, res, next) => {
+    if (!req.user) {
+        res.render('login', {
+            layout: 'base',
+            message: 'Please login to continue',
+            messageClass: 'alert-danger'
+        });
+        return;
+    }
 
     const user = req.user;
     let payloadContent = {

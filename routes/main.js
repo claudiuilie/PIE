@@ -5,6 +5,15 @@ const courseService = require('../services/database/courseService');
 /* GET home page. */
 router.get('/', async (req, res, next) => {
 
+    if (!req.user) {
+        res.render('login', {
+            layout: 'base',
+            message: 'Please login to continue',
+            messageClass: 'alert-danger'
+        });
+       return;
+    }
+
     let payloadContent = {
         user: req.user,
         cursuri: null

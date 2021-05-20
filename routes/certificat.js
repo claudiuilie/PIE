@@ -3,6 +3,14 @@ const router = express.Router();
 const certificateService = require('../services/database/certificateService');
 
 router.get('/', async (req, res, next) => {
+    if (!req.user) {
+        res.render('login', {
+            layout: 'base',
+            message: 'Please login to continue',
+            messageClass: 'alert-danger'
+        });
+        return;
+    }
 
     const user = req.user;
     let message = {

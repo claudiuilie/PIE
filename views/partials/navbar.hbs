@@ -12,27 +12,10 @@
             </span>
 
             <div class="dropdown-menu" aria-labelledby="navbarUser">
+
                 <a class="dropdown-item" href="/profil">Profil</a>
-                <a class="dropdown-item" onclick="logOut()" href="/#">Log out</a>
+                <a class="dropdown-item"  href="/logout">Log out</a>
             </div>
         </li>
     </ul>
-    <script>
-        function logOut() {
-            jQuery.ajax({
-                type: "GET",
-                url: "/logout",
-                async: false,
-                username: "logmeout",
-                password: "123456",
-                headers: { "Authorization": "Basic xxx" }
-            })
-                    .done(function(){
-                        // If we don't get an error, we actually got an error as we expect an 401!
-                    })
-                    .fail(function(){
-                        window.location = "/";
-                    });
-        }
-    </script>
 </nav>
