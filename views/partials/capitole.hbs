@@ -1,31 +1,40 @@
 <div class="row">
-<div class="col-12 col-lg-12">
 
-        
-          <div class="card mb-4 shadow-lg mb-5 p-3">
-            <h2 class="card-header text-center">{{payload.curs_description}}</h2>
-            <div class="card-body">
-                {{#each payload.curs}}
-              <div class="media mb-2">
-                <svg class="svg-inline--fa fa-university fa-w-16 fa-3x fa-fw text-orange mr-2" aria-hidden="true" data-fa-processed="" data-prefix="fas" data-icon="university" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M480 128v16a8 8 0 0 1-8 8h-24v12c0 6.627-5.373 12-12 12H44c-6.627 0-12-5.373-12-12v-12H8a8 8 0 0 1-8-8v-16a8 8 0 0 1 4.941-7.392l232-88a7.996 7.996 0 0 1 6.118 0l232 88A8 8 0 0 1 480 128zm-24 304H24c-13.255 0-24 10.745-24 24v16a8 8 0 0 0 8 8h464a8 8 0 0 0 8-8v-16c0-13.255-10.745-24-24-24zM64 192v192H44c-6.627 0-12 5.373-12 12v20h416v-20c0-6.627-5.373-12-12-12h-20V192h-64v192h-32V192h-64v192h-32V192h-64v192h-32V192H64z"></path></svg><!-- <i class="fas fa-university fa-3x fa-fw text-primary mr-2"></i> -->
-                <div class="media-body">
-                  <h3 class="h4 mb-1 text-orange">{{this.description}}</h3>
-                  <div class="d-sm-flex justify-content-sm-between align-items-sm-baseline"><h5 class="mb-0 text-orange"><a href="#0">Universitatea Spiru Haret -- Facultatea de Matematică Informatică și Ștințele</a></h5> <small class="d-block text-uppercase font-weight-bold text-orange"><time datetime="2017-01">Octombie 2018</time> – <time datetime="2017-12">Septembrie  2021</time></small></div>
-                </div>
-              </div>
-              <pre class="bg-white text-dark border-0 card_text" style="font-size: 14px; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">{{this.context}}</pre>
-              <hr>
-              {{/each}}
-
-        
-            
-           
-                  <div class="terms text-center">
-                    <p><b>Felicitari pentru timpul acordat acestui curs.</b></p>
-                    <a href="/quiz?c={{payload.curs_id}}" class="btn btn-orange text-white">Incepe Testul</a>
+    <div class="col-12 col-lg-12">
+<!--        <h2 class="card-header text-center">{{payload.curs_description}}</h2>-->
+        {{#each payload.curs}}
+            <div class="card mb-4 shadow-lg mb-5 p-3">
+                <div class="card-body">
+                    <div class="media mb-2 card-header">
+                        <i class="fad fa-books fa-3x mr-3 text-orange"></i>
+                        <div class="media-body">
+                            <h3 class="h4 mb-1 text-orange">{{this.description}}</h3>
+                            <div class="d-sm-flex justify-content-sm-between align-items-sm-baseline">
+                                <h5 class="mb-0 text-orange">
+                                    {{this.cc_description}}
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container ">
+                        {{#each this.subchapters}}
+                            {{#if @key}}
+                                <div class="dropdown-divider "></div>
+                            {{/if}}
+                            <h4 class="p-0 mt-5">{{this.cs_description}}</h4>
+                            {{#if this.context}}
+                                <pre class="bg-white text-dark border-0 text-wrap"
+                                     style="font-size: 14px; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">    {{this.context}}</pre>
+                            {{/if}}
+                        {{/each}}
+                    </div>
+                    <hr>
                 </div>
             </div>
-          </div>
-         
+        {{/each}}
+        <div class="terms text-center">
+            <p><b>Felicitari pentru timpul acordat acestui curs.</b></p>
+            <a href="/quiz?c={{payload.curs_id}}" class="btn btn-orange text-white">Incepe Testul</a>
         </div>
-        </div>
+    </div>
+</div>

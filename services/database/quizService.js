@@ -5,7 +5,9 @@ const getByIdQuery = ` select q.id "quiz_id",q.description "quiz_description",qq
                         from quiz q 
                         join quiz_questions qq on qq.quiz_id = q.id
                         join quiz_results qr on qr.quiz_id = q.id
-                       where q.course_id =?;`;
+                        join users u on u.id = qr.user_id
+                       where q.course_id = ?
+                       and u.username = ?;`;
 
 const getCorrectChoicesQuery = `select qr.id,qr.correct_choice 
                                    from quiz_questions qr
@@ -88,10 +90,10 @@ function getByQuizQuestionId(id, isIn){
     });
 }
 
-function getByCourseId(id){
+function getByCourseId(id,username){
     return new Promise(async (resolve,reject)=>{
         try{
-            const rows = await db.query(getByIdQuery,[id]);
+            const rows = await db.query(getByIdQuery,[id, username]);
             const data = helper.emptyOrRows(rows);
             resolve(data);
         }catch(err){
@@ -124,6 +126,20 @@ function getCorrectChoices(quizId){
     });
 }
 
+function insertQuizResults(params) {
+
+    const credQuery = `INSERT INTO quiz_results (user_id, quiz_id, available) VALUES(?,?,?);`;
+    return new Promise(async (resolve, reject) => {
+        try {
+            const rows = await db.query(credQuery, params);
+            const data = helper.emptyOrRows(rows);
+            resolve(data);
+        } catch (err) {
+            reject(err)
+        }
+    });
+}
+
 module.exports = {
     getByCourseId,
     getCorrectChoices,
@@ -131,5 +147,6 @@ module.exports = {
     getByQuizId,
     getQuizMinScore,
     setQuizUnlock,
-    setQuizStatus
+    setQuizStatus,
+    insertQuizResults
 }

@@ -31,22 +31,17 @@ app.use(session({
   saveUninitialized: false
 }));
 
-
-
 app.use(loggerService.consoleLogger);
 app.use(loggerService.fileLogger);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-
 app.use(express.static(path.join(__dirname, 'public')));
 app.use((req, res, next) => {
   // Get auth token from the cookies
-  console.log(req.session)
   const authToken = req.cookies['AuthToken'];
   // Inject the user to the request
-  console.log(authHelper.getAuthTokens())
   req.user = authHelper.getAuthTokens()[authToken];
   next();
 });
