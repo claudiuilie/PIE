@@ -38,6 +38,21 @@ router.get('/', async (req, res, next) => {
                 next(err);
             });
 
+        const subchapters = await  courseService.getChaptersByCourseId(params.id);
+
+        for(let x in payloadContent.curs)
+            payloadContent.curs[x].subchapters = [];
+
+        for(let k in subchapters) {
+            subchapters[k].context = subchapters[k].context !== null ? subchapters[k].context.trim() : subchapters[k].context;
+            for(let z in payloadContent.curs)
+            {
+                if(subchapters[k].description === payloadContent.curs[z].cc_description){
+                    payloadContent.curs[z].subchapters.push(subchapters[k])
+                }
+            }
+        }
+
         res.render('cursuri',
             {
                 payload: payloadContent

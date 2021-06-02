@@ -28,7 +28,7 @@ router.get('/', async (req, res, next) => {
     }
 
     if(typeof params.c !== "undefined"){
-        await quizService.getByCourseId(params.c)
+        await quizService.getByCourseId(params.c, user)
             .then((data)=>{
                 res.body = data;
                 payloadContent.quiz = data;
@@ -55,7 +55,7 @@ router.get('/', async (req, res, next) => {
                message.type = "danger"
             }
         }
-
+        console.log(payloadContent)
         res.render('quiz',
             {
                 payload: payloadContent,

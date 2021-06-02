@@ -28,7 +28,7 @@ function getUser(email) {
 }
 
 function insertUser(params) {
-    console.log(params)
+
     const credQuery = `INSERT INTO users ( username,email, password, first_name, last_name ) VALUES(?,?,?,?,?);`;
     return new Promise(async (resolve, reject) => {
         try {
@@ -40,6 +40,8 @@ function insertUser(params) {
         }
     });
 }
+
+
 
 module.exports = {
     getCredentials,

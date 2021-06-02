@@ -1,35 +1,40 @@
-<div class="page-header">
-    <div class="page-leftheader">
-        <h4 class="page-title"><b>{{payload.curs_description}}</b></h4>
-    </div>
-</div>
 <div class="row">
 
-    {{#each payload.curs}}
-        <div class="col-md-12">
-            <div class="card shadow-lg mb-5 p-3">
-                <div class="card-header">
-                    <h4>
-                        <b>
-                            <i class="fad fa-lg text-gray-dark fa-book"></i> {{this.description}}
-                        </b>
-                    </h4>
-                </div>
+    <div class="col-12 col-lg-12">
+<!--        <h2 class="card-header text-center">{{payload.curs_description}}</h2>-->
+        {{#each payload.curs}}
+            <div class="card mb-4 shadow-lg mb-5 p-3">
                 <div class="card-body">
-                    <pre class="bg-white text-dark border-0">{{this.context}}</pre>
+                    <div class="media mb-2 card-header">
+                        <i class="fad fa-books fa-3x mr-3 text-orange"></i>
+                        <div class="media-body">
+                            <h3 class="h4 mb-1 text-orange">{{this.description}}</h3>
+                            <div class="d-sm-flex justify-content-sm-between align-items-sm-baseline">
+                                <h5 class="mb-0 text-orange">
+                                    {{this.cc_description}}
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container ">
+                        {{#each this.subchapters}}
+                            {{#if @key}}
+                                <div class="dropdown-divider "></div>
+                            {{/if}}
+                            <h4 class="p-0 mt-5">{{this.cs_description}}</h4>
+                            {{#if this.context}}
+                                <pre class="bg-white text-dark border-0 text-wrap"
+                                     style="font-size: 14px; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">    {{this.context}}</pre>
+                            {{/if}}
+                        {{/each}}
+                    </div>
+                    <hr>
                 </div>
             </div>
-        </div>
-    {{/each}}
-
-    <div class="col-md-12">
-        <div class="card shadow-lg mb-5 p-3">
-            <div class="card-body text-center">
-                <div class="terms">
-                    <p><b>Felicitari pentru timpul acordat acestui curs.</b></p>
-                    <a href="/quiz?c={{payload.curs_id}}" class="btn btn-orange text-white">Incepe Testul</a>
-                </div>
-            </div>
+        {{/each}}
+        <div class="terms text-center">
+            <p><b>Felicitari pentru timpul acordat acestui curs.</b></p>
+            <a href="/quiz?c={{payload.curs_id}}" class="btn btn-orange text-white">Incepe Testul</a>
         </div>
     </div>
 </div>

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const authHelper = require('../helpers/authHelper');
 const authService = require('../services/authService');
+const quizService = require('../services/database/quizService')
 
 router.get('/', async (req, res, next) => {
 
@@ -26,12 +27,10 @@ router.get('/', async (req, res, next) => {
 
 router.post('/', async (req, res) => {
     const { email, firstName, lastName, password, confirmPassword } = req.body;
-    console.log(req.body)
-    // Check if the password and confirm password fields match
+
     if (password === confirmPassword) {
 
         const user = await authService.getUser(email);
-        // Check if user with the same email is also registered
         if (user) {
 
             res.render('register', {
@@ -46,7 +45,6 @@ router.post('/', async (req, res) => {
         }
         const hashedPassword = authHelper.getHashedPassword(password);
 
-        // Store user into the database if you are using one
         const insertResult = await authService.insertUser({
             username:lastName,
             email: email,
@@ -54,6 +52,13 @@ router.post('/', async (req, res) => {
             first_name: firstName,
             last_name: lastName
         });
+
+        if(typeof insertResult.insertId !== "undefined"){
+            const userId = insertResult.insertId;
+            await quizService.insertQuizResults([userId,1,1])
+            await quizService.insertQuizResults([userId,2,0])
+            await quizService.insertQuizResults([userId,3,0])
+        }
 
         res.render('login', {
             layout: 'base',
